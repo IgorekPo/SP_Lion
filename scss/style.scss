@@ -10,10 +10,9 @@
    left: 0;
    width: 100%;
    box-shadow: 1px 1px 5px #000;
-   background: linear-gradient(90deg,rgba(255, 145, 0, 0.874) 21%, rgb(255, 164, 45) 100%);
+   background: linear-gradient(90deg,rgba(238, 137, 6, 0.874) 21%, rgb(255, 164, 45) 100%);
    backdrop-filter: blur(2px);
    z-index: 3;
-
    &__container {
    height: 95px;
    padding-top: 25px;
