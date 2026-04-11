@@ -380,6 +380,83 @@ main {
   padding-bottom: 60px;
   position: relative;
 }
+.herro__parallax {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+@media (max-width: 484.98px) {
+  .herro__parallax {
+    display: none;
+  }
+}
+.herro__parallax-item {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  -webkit-transition: -webkit-transform 0.1s ease-out .herro__parallax-item img;
+  transition: -webkit-transform 0.1s ease-out .herro__parallax-item img;
+  transition: transform 0.1s ease-out .herro__parallax-item img;
+  transition: transform 0.1s ease-out .herro__parallax-item img, -webkit-transform 0.1s ease-out .herro__parallax-item img;
+  transition-width: 100%;
+  transition-height: 100%;
+  transition-object-fit: contain;
+}
+.herro__parallax-item:nth-child(1) {
+  top: 20%;
+  left: 15%;
+}
+.herro__parallax-item:nth-child(2) {
+  top: 60%;
+  left: 25%;
+}
+.herro__parallax-item:nth-child(3) {
+  top: 40%;
+  left: 70%;
+  -webkit-filter: blur(1px);
+          filter: blur(1px);
+}
+.herro__parallax-item:nth-child(3) img {
+  -webkit-transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+.herro__parallax-item:nth-child(4) {
+  top: 10%;
+  left: 50%;
+  width: 150px;
+  -webkit-filter: blur(1px);
+          filter: blur(1px);
+}
+.herro__parallax-item:nth-child(4) img {
+  -webkit-transform: rotateY(-45deg);
+          transform: rotateY(-45deg);
+}
+.herro__parallax-item:nth-child(5) {
+  top: 75%;
+  left: 80%;
+}
+.herro__parallax-item:nth-child(6) {
+  top: 95%;
+  left: 5%;
+}
+.herro__parallax-item:nth-child(7) {
+  top: 20%;
+  right: 10%;
+}
+.herro__parallax-item:nth-child(8) {
+  top: 67%;
+  right: 14%;
+}
 .herro__informations {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -452,6 +529,8 @@ main {
   width: 30vw;
   height: 27vh;
   z-index: 2;
+  -webkit-filter: blur(1px);
+          filter: blur(1px);
 }
 @media (max-width: 484.98px) {
   .herro__onion {
@@ -484,28 +563,6 @@ main {
   }
   100% {
     clip-path: inset(0 0 0 0);
-  }
-}
-.herro__cards {
-  position: absolute;
-  top: 50%;
-  right: 10%;
-  -webkit-transform: translate(-10%, -50%);
-      -ms-transform: translate(-10%, -50%);
-          transform: translate(-10%, -50%);
-  width: 300px;
-  height: 300px;
-  -webkit-perspective: 1000px;
-          perspective: 1000px;
-}
-@media (max-width: 1056px) {
-  .herro__cards {
-    right: 0;
-  }
-}
-@media (max-width: 919.98px) {
-  .herro__cards {
-    right: -10%;
   }
 }
 .herro__video {
@@ -541,7 +598,7 @@ main {
   position: absolute;
   max-width: 480px;
   max-height: 500px;
-  top: 20%;
+  top: 25%;
   left: 30%;
   -webkit-transform: translate(-30%, -20%);
       -ms-transform: translate(-30%, -20%);

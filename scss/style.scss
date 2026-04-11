@@ -198,16 +198,73 @@
       };
    }
    &__container {
-
       height: 100vh;
       padding-top: 100px;
       padding-bottom: 60px;
       position: relative;
    }
-
-   &__lion {
+   &__parallax{
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      @media(max-width: 484.98px){
+         display: none;
+      };
+      &-item{
+         position: absolute;
+         width: 100px;
+         height: 100px;
+         transition: transform 0.1s ease-out
+         & img{
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+         }
+      }
+      &-item:nth-child(1){
+         top: 20%;
+         left: 15%;
+         
+      }
+      &-item:nth-child(2){
+         top: 60%;
+         left: 25%;
+      }
+      &-item:nth-child(3){
+         top: 40%;
+         left: 70%;
+         filter: blur(1px);
+         & img{transform: rotate(-45deg);}
+      }
+      &-item:nth-child(4){
+         top: 10%;
+         left: 50%;
+         width: 150px;
+         filter: blur(1px);
+          & img{
+            transform: rotateY( -45deg);
+         }
+      }
+      &-item:nth-child(5){
+         top: 75%;
+         left: 80%;
+      }
+      &-item:nth-child(6){
+         top: 95%;
+         left: 5%;
+      }
+      &-item:nth-child(7){
+         top: 20%;
+         right: 10%;
+      }
+      &-item:nth-child(8){
+         top: 67%;
+         right: 14%;
+      }
    }
-
    &__informations {
       display: flex;
       flex-direction: column;
@@ -268,6 +325,7 @@
       width: 30vw;
       height: 27vh;
       z-index: 2;
+      filter: blur(1px);
       @media(max-width: 484.98px){
          display: none;
       };
@@ -288,21 +346,7 @@
          }
       }
    }
-   &__cards {
-      position: absolute;
-      top: 50%;
-      right: 10%;
-      transform: translate(-10% , -50%);
-      width: 300px;
-      height: 300px;
-      perspective: 1000px;
-      @media(max-width: 1056px){
-         right: 0;
-      }
-      @media(max-width: 919.98px){
-         right: -10%;
-      };
-   }
+
    &__video{
    display: none;
    position: absolute;
@@ -333,7 +377,7 @@
    position: absolute;
    max-width: 480px;
    max-height: 500px;
-   top: 20%;
+   top: 25%;
    left: 30%;
    transform: translate(-30%, -20%);
    overflow: hidden;

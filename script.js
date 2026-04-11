@@ -102,3 +102,26 @@ faqBlock.forEach(block => {
     this.classList.add('active');
   });
 });
+
+
+// PARALLAX========================================
+
+document.addEventListener("mousemove", (e) => {
+  const items = document.querySelectorAll(".herro__parallax-item");
+  
+  // Координаты мыши
+  const mouseX = e.clientX;
+  const mouseY = e.clientY;
+
+  items.forEach((item) => {
+    // Получаем скорость из атрибута data-speed
+    const speed = item.getAttribute("data-speed");
+
+    // Вычисляем смещение: чем выше speed, тем сильнее движение
+    const x = (window.innerWidth - mouseX * speed) / 200;
+    const y = (window.innerHeight - mouseY * speed) / 200;
+
+    // Применяем трансформацию
+    item.style.transform = `translateX(${x}px) translateY(${y}px)`;
+  });
+});
