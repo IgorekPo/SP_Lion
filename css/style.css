@@ -728,12 +728,13 @@ main {
           align-items: center;
   gap: 40px;
 }
-@media (max-width: 657.98px) {
+@media (max-width: 949.98px) {
   .factory__body {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+    text-align: center;
   }
 }
 .factory__img {

@@ -449,9 +449,11 @@
    &__body {
       display: flex;
       align-items: center;
+
       gap: 40px;
-      @media(max-width: 657.98px){
+      @media(max-width: 949.98px){
          flex-direction: column;
+               text-align: center;
       };
    }
 
