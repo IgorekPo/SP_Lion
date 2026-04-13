@@ -148,3 +148,23 @@ document.addEventListener('DOMContentLoaded', () => {
 } , 3000);
 });
 
+// FOOD HERO========================================
+
+const foodItems = document.querySelectorAll('.herro__food');
+let currentIdx = 0;
+
+function rotateFood() {
+  const current = foodItems[currentIdx];
+
+  current.classList.remove('play');
+  current.classList.add('exit');
+  
+  setTimeout(() => {
+    current.classList.remove('exit');
+  }, 700);
+
+  currentIdx = (currentIdx + 1) % foodItems.length;
+  
+  foodItems[currentIdx].classList.add('play');
+}
+setInterval(rotateFood, 3000);
