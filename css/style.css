@@ -139,7 +139,7 @@ main {
   z-index: 3;
 }
 .header__container {
-  height: 95px;
+  height: 75px;
   padding-top: 25px;
   padding-bottom: 25px;
   display: -webkit-box;
