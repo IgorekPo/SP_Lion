@@ -1,3 +1,17 @@
+document.addEventListener('DOMContentLoaded', () => {
+  const items = document.querySelectorAll(".herro__parallax-item");
+  setTimeout(() => {
+    items.forEach((item) => {
+      const targetTop = item.getAttribute("data-top");
+      const targetLeft = item.getAttribute("data-left");
+      item.style.top = `${targetTop}%`;
+      item.style.left = `${targetLeft}%`;
+      item.style.opacity = '1';
+    });
+} , 3000);
+});
+
+
 const burgerMenu = document.querySelector ('.header__burger');
 const headerMenu = document.querySelector ('.header__menu');
 
@@ -106,6 +120,8 @@ faqBlock.forEach(block => {
 
 // PARALLAX========================================
 
+
+setTimeout(() => {
 document.addEventListener("mousemove", (e) => {
   const items = document.querySelectorAll(".herro__parallax-item");
   
@@ -125,3 +141,4 @@ document.addEventListener("mousemove", (e) => {
     item.style.transform = `translateX(${x}px) translateY(${y}px)`;
   });
 });
+}, 3200);
