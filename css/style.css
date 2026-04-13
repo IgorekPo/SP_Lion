@@ -307,7 +307,7 @@ main {
 .herro {
   height: 100vh;
   background-color: #000;
-  background: url("../img2/bg.jpg") 0 0 no-repeat;
+  background: url("../img/bg.jpg") 0 0 no-repeat;
   background-size: 100% 100%;
   position: relative;
 }
@@ -325,6 +325,7 @@ main {
           transform: translate(-50%, -100%);
   width: 40vw;
   height: 30vh;
+  min-width: 350px;
   z-index: 1;
   opacity: 0;
   -webkit-animation: onionShowe 1.8s ease-in 2.4s forwards;
@@ -406,8 +407,8 @@ main {
 }
 .herro__parallax-item {
   position: absolute;
-  width: 100px;
-  height: 100px;
+  width: 10vw;
+  height: 12vh;
   top: 85%;
   left: 55%;
   -webkit-transform: translate(-85%, -55%);
