@@ -223,7 +223,6 @@
          height: 12vh;
          top: 85%;
          left: 55%;
-         transform: translate(-85% , -55%);
          opacity: 0;
          transition: top 1.5s ease-out, left 1.5s ease-out, opacity 1.2s ease-in-out;
          & img{

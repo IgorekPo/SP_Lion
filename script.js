@@ -112,29 +112,6 @@ faqBlock.forEach(block => {
 
 // PARALLAX========================================
 
-
-setTimeout(() => {
-document.addEventListener("mousemove", (e) => {
-  const items = document.querySelectorAll(".herro__parallax-item");
-  
-  // Координаты мыши
-  const mouseX = e.clientX;
-  const mouseY = e.clientY;
-
-  items.forEach((item) => {
-    // Получаем скорость из атрибута data-speed
-    const speed = item.getAttribute("data-speed");
-
-    // Вычисляем смещение: чем выше speed, тем сильнее движение
-    const x = (window.innerWidth - mouseX * speed) / 200;
-    const y = (window.innerHeight - mouseY * speed) / 200;
-
-    // Применяем трансформацию
-    item.style.transform = `translateX(${x}px) translateY(${y}px)`;
-  });
-});
-}, 3200);
-
 document.addEventListener('DOMContentLoaded', () => {
   const items = document.querySelectorAll(".herro__parallax-item");
   setTimeout(() => {
@@ -145,7 +122,29 @@ document.addEventListener('DOMContentLoaded', () => {
       item.style.left = `${targetLeft}%`;
       item.style.opacity = '1';
     });
-} , 3000);
+  }, 3000); 
+
+  setTimeout(() => {
+    items.forEach(item => {
+      item.style.transition = 'none'; 
+    });
+
+    document.addEventListener("mousemove", (e) => {
+      const mouseX = e.clientX;
+      const mouseY = e.clientY;
+      const centerX = window.innerWidth / 2;
+      const centerY = window.innerHeight / 2;
+
+      items.forEach((item) => {
+        const speed = item.getAttribute("data-speed") / 15; 
+        
+        const x = (centerX - mouseX) * speed / 15;
+        const y = (centerY - mouseY) * speed / 15;
+
+        item.style.transform = `translate(${x}px, ${y}px)`;
+      });
+    });
+  }, 5000);
 });
 
 // FOOD HERO========================================
