@@ -167,3 +167,43 @@ function rotateFood() {
   foodItems[currentIdx].classList.add('play');
 }
 setInterval(rotateFood, 3000);
+
+
+// MODAL========================================
+
+const form = document.querySelector('.order__form');
+const modal = document.getElementById('modal');
+const closeBtn = document.querySelector('.modal__close');
+const body = document.body;
+
+function openModal() {
+   modal.classList.add('_open');
+   body.classList.add('_lock');
+}
+
+function closeModal() {
+   modal.classList.remove('_open');
+   body.classList.remove('_lock');
+}
+
+form.addEventListener('submit', function(e) {
+   e.preventDefault();
+   const phoneInput = document.getElementById('phone');
+   if (phoneInput.value.length > 0) {
+      openModal();
+      form.reset();
+   }
+});
+closeBtn.addEventListener('click', closeModal);
+
+window.addEventListener('click', function(e) {
+   if (e.target === modal) {
+      closeModal();
+   }
+});
+
+window.addEventListener('keydown', function(e) {
+   if (e.key === 'Escape') {
+      closeModal();
+   }
+});
