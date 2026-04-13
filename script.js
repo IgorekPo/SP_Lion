@@ -1,15 +1,7 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const items = document.querySelectorAll(".herro__parallax-item");
-  setTimeout(() => {
-    items.forEach((item) => {
-      const targetTop = item.getAttribute("data-top");
-      const targetLeft = item.getAttribute("data-left");
-      item.style.top = `${targetTop}%`;
-      item.style.left = `${targetLeft}%`;
-      item.style.opacity = '1';
-    });
-} , 3000);
-});
+// RESET------------------------------------------------------
+if ('scrollRestoration' in history) {
+   history.scrollRestoration = 'manual';
+}
 
 
 const burgerMenu = document.querySelector ('.header__burger');
@@ -44,7 +36,7 @@ const inputs = document.querySelectorAll('.order__input');
 const submitBtn = document.querySelector('.order__submit');
 
 function checkInputs() {
-    const allFilled = Array.from(inputs).every(input => input.value.trim().length > 0);
+    const allFilled = Array.from(inputs).every(input => input.value.trim().length > 12);
 
     if (allFilled) {
         submitBtn.classList.add('active');
@@ -142,3 +134,17 @@ document.addEventListener("mousemove", (e) => {
   });
 });
 }, 3200);
+
+document.addEventListener('DOMContentLoaded', () => {
+  const items = document.querySelectorAll(".herro__parallax-item");
+  setTimeout(() => {
+    items.forEach((item) => {
+      const targetTop = item.getAttribute("data-top");
+      const targetLeft = item.getAttribute("data-left");
+      item.style.top = `${targetTop}%`;
+      item.style.left = `${targetLeft}%`;
+      item.style.opacity = '1';
+    });
+} , 3000);
+});
+

@@ -231,7 +231,7 @@ main {
   position: absolute;
   left: 0;
   bottom: -5px;
-  width: 6px;
+  width: 0px;
   height: 3px;
   border-radius: 5px;
   background: -webkit-gradient(linear, left top, right top, from(rgb(252, 176, 69)), color-stop(21%, rgb(255, 145, 0)), to(rgb(225, 31, 33)));
@@ -1034,7 +1034,7 @@ main {
 }
 
 .faq {
-  padding-top: 120px;
+  padding-top: 60px;
   padding-bottom: 60px;
 }
 .faq__container {

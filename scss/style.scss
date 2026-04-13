@@ -88,7 +88,7 @@
       position: absolute;
       left: 0;
       bottom: -5px;
-      width: 6px;
+      width: 0px;
       height: 3px;
       border-radius: 5px;
       background: linear-gradient(90deg,rgba(252, 176, 69, 1) 0%, rgba(255, 145, 0, 1) 21%, rgba(225, 31, 33, 1) 100%);
@@ -657,10 +657,6 @@
       @extend %tittleText;
       text-align: center;
    }
-
-   &__body {
-   }
-
    &__form {
       display: flex;
       flex-direction: column;
@@ -706,7 +702,7 @@
 // ===================================================================================================================
 
 .faq {
-   padding-top: 120px;
+   padding-top: 60px;
    padding-bottom: 60px;
    &__container {
       display: flex;
