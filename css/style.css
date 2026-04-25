@@ -328,8 +328,8 @@ main {
   min-width: 350px;
   z-index: 1;
   opacity: 0;
-  -webkit-animation: onionShowe 1.8s ease-in 2.4s forwards;
-          animation: onionShowe 1.8s ease-in 2.4s forwards;
+  -webkit-animation: onionShowe 1.2s ease-in 2s forwards;
+          animation: onionShowe 1.2s ease-in 2s forwards;
 }
 @-webkit-keyframes onionShowe {
   0% {
@@ -528,8 +528,8 @@ main {
   -o-object-fit: contain;
      object-fit: contain;
   clip-path: inset(100% 0 0 0);
-  -webkit-animation: onionUp 1.5s ease-out 2.4s forwards;
-          animation: onionUp 1.5s ease-out 2.4s forwards;
+  -webkit-animation: onionUp 1s ease-out 1.5s forwards;
+          animation: onionUp 1s ease-out 1.5s forwards;
 }
 @-webkit-keyframes onionUp {
   0% {
@@ -667,8 +667,8 @@ main {
           mask-size: 300% 100%;
   -webkit-mask-position: 100% 0;
           mask-position: 100% 0;
-  -webkit-animation: revealEffect 1.9s ease-out 1.5s forwards;
-          animation: revealEffect 1.9s ease-out 1.5s forwards;
+  -webkit-animation: revealEffect 1.5s ease-out 1s forwards;
+          animation: revealEffect 1.5s ease-out 1s forwards;
 }
 @-webkit-keyframes revealEffect {
   0% {

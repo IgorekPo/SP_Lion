@@ -122,7 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
       item.style.left = `${targetLeft}%`;
       item.style.opacity = '1';
     });
-  }, 3000); 
+  }, 2000); 
 
   setTimeout(() => {
     items.forEach(item => {
@@ -144,7 +144,7 @@ document.addEventListener('DOMContentLoaded', () => {
         item.style.transform = `translate(${x}px, ${y}px)`;
       });
     });
-  }, 5000);
+  }, 3500);
 });
 
 // FOOD HERO========================================
@@ -166,7 +166,7 @@ function rotateFood() {
   
   foodItems[currentIdx].classList.add('play');
 }
-setInterval(rotateFood, 3000);
+setInterval(rotateFood, 1500);
 
 
 // MODAL========================================

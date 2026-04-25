@@ -56,13 +56,12 @@
          top: -150vh;
          transition: all .5s ease;
          background: linear-gradient(187deg,rgba(255, 145, 0, 0.6) 21%, rgba(255, 177, 74, 0.96) 81%);
-         // background: linear-gradient(180deg,rgba(255, 145, 0, 1) 29%, rgba(245, 217, 184, 1) 100%);
          backdrop-filter: blur(3px);
          border-radius: 100% 0% 89% 11% / 0% 89% 11% 100% ;
          padding-top: 60px;
          &.active{
             top: 0px;
-         }
+         };
       };
    }
 
@@ -174,7 +173,7 @@
       min-width: 350px;
       z-index: 1;
          opacity: 0;
-         animation: onionShowe 1.8s ease-in 2.4s forwards;
+         animation: onionShowe 1.2s ease-in 2s forwards;
          @keyframes onionShowe {
             0% {
                opacity: 0;
@@ -313,7 +312,7 @@
          height: 100%;
          object-fit: contain;
          clip-path: inset(100% 0 0 0);
-         animation: onionUp 1.5s ease-out 2.4s forwards;
+         animation: onionUp 1s ease-out 1.5s forwards;
          @keyframes onionUp {
             0% {
                clip-path: inset(100% 0 0 0);
@@ -409,7 +408,7 @@
       mask-image: linear-gradient(to right, #000 66%, transparent 33%);
       mask-size: 300% 100%;
       mask-position: 100% 0;
-      animation: revealEffect 1.9s ease-out 1.5s forwards;
+      animation: revealEffect 1.5s ease-out 1s forwards;
       @keyframes revealEffect {
          0% {
             opacity: 0;
