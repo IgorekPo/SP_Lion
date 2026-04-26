@@ -37,29 +37,32 @@ const regionItems = document.querySelectorAll('.custom-list li');
 const phoneInput = document.querySelector('#phone');
 const submitBtn = document.querySelector('.order__submit');
 
+const tgOrderForm = document.querySelector('.order__form');
+const tgModalWindow = document.querySelector('#modal');
+const tgModalCloseBtn = document.querySelector('.modal__close');
+
+
+const TG_TOKEN = '8741707898:AAHBno3raByvvdTGxt6sWZUSUG1T0Y1h9dY'; 
+const TG_CHAT_ID = '-5254152843'; 
+
 phoneInput.addEventListener('focus', () => {
     if (phoneInput.value.length === 0) {
         phoneInput.value = '+380';
     }
 });
 
-phoneInput.addEventListener('input', (e) => {
+phoneInput.addEventListener('input', () => {
     let value = phoneInput.value;
-
     if (!value.startsWith('+380')) {
         value = '+380';
     }
-
-
     const prefix = '+380';
     const body = value.substring(4).replace(/\D/g, ''); 
-    
     phoneInput.value = prefix + body;
-
     checkInputs();
 });
 
-regionInput.addEventListener('input', (e) => {
+regionInput.addEventListener('input', () => {
     regionInput.value = regionInput.value.replace(/[^a-zA-Zа-яА-ЯёЁїЇіІєЄґҐ\s]/g, '');
     const filter = regionInput.value.toLowerCase();
     let visibleCount = 0;
@@ -89,7 +92,6 @@ regionItems.forEach(item => {
     });
 });
 
-
 function checkInputs() {
     const isRegionValid = regionInput.value.trim().length >= 7;
     const isPhoneValid = phoneInput.value.length === 13;
@@ -103,11 +105,59 @@ function checkInputs() {
     }
 }
 
+// --- ВІДПРАВКА В TELEGRAM ---
+   tgOrderForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const selectedRegion = regionInput.value;
+    const userPhone = phoneInput.value;
+    const messageText = `<b>🔔 Нове замовлення!</b>\n` +
+                        `<b>🌍 Область:</b> ${selectedRegion}\n` +
+                        `<b>📞 Телефон:</b> ${userPhone}`;
+
+    try {
+        const botToken = "8741707898:AAHBno3raByvvdTGxt6sWZUSUG1T0Y1h9dY";
+        const response = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+            method: 'POST',
+            headers: { 
+                'Content-Type': 'application/json' 
+            },
+            body: JSON.stringify({
+                chat_id: TG_CHAT_ID,
+                text: messageText,
+                parse_mode: 'HTML'
+            })
+        });
+
+        if (response.ok) {
+            tgModalWindow.style.display = 'flex'; 
+            tgOrderForm.reset();                   
+            
+            if (typeof checkInputs === 'function') {
+                checkInputs(); 
+            }
+        } else {
+            const errorData = await response.json();
+            console.error('Telegram API Error:', errorData);
+            alert('Помилка відправки. Перевірте API токен або Chat ID.');
+        }
+    } catch (error) {
+        console.error('Помилка мережі:', error);
+        alert('Немає зв’язку з сервером Telegram.');
+    }
+});
+
 document.addEventListener('click', (e) => {
+    // Закриваємо випадаючий список
     if (!e.target.closest('.custom-select')) {
         regionList.style.display = 'none';
     }
+    if (e.target === tgModalWindow || e.target === tgModalCloseBtn) {
+        tgModalWindow.style.display = 'none';
+    }
 });
+
+
 // ===============================================
 
 
