@@ -31,64 +31,69 @@ document.addEventListener ('click' , (e)=>{
 
 // ============INPUT==================================
 
-
-const inputs = document.querySelectorAll('.order__input');
+const regionInput = document.querySelector('#region');
+const regionList = document.querySelector('#region-list');
+const regionItems = document.querySelectorAll('.custom-list li');
+const phoneInput = document.querySelector('#phone');
 const submitBtn = document.querySelector('.order__submit');
 
-function checkInputs() {
-    const allFilled = Array.from(inputs).every(input => input.value.trim().length > 12);
+regionInput.addEventListener('input', () => {
+    const filter = regionInput.value.toLowerCase();
+    let visibleCount = 0;
 
-    if (allFilled) {
+    regionList.style.display = 'block';
+
+    regionItems.forEach(item => {
+        const text = item.textContent.toLowerCase();
+        if (text.includes(filter)) {
+            item.style.display = "block";
+            visibleCount++;
+        } else {
+            item.style.display = "none";
+        }
+    });
+
+    if (visibleCount === 0) {
+        regionList.style.display = 'none';
+    }
+    
+    checkInputs(); 
+});
+
+regionItems.forEach(item => {
+    item.addEventListener('click', () => {
+        regionInput.value = item.textContent;
+        regionList.style.display = 'none';
+
+        regionItems.forEach(li => li.style.display = "block");
+        
+        checkInputs();
+    });
+});
+
+
+function checkInputs() {
+    const isRegionValid = regionInput.value.trim().length >= 7;
+    const isPhoneValid = phoneInput.value.trim().length >= 13;
+
+    if (isRegionValid && isPhoneValid) {
         submitBtn.classList.add('active');
+        submitBtn.disabled = false;
     } else {
         submitBtn.classList.remove('active');
+        submitBtn.disabled = true;
     }
 }
-inputs.forEach(input => {
-    input.addEventListener('input', checkInputs);
-});
 
+phoneInput.addEventListener('input', checkInputs);
 
-function formValidate(form) {
-    let error = 0;
-    let formReq = document.querySelectorAll('._req');
-    for (let index = 0; index < formReq.length; index++) {
-      const input = formReq[index];
-      formRemoveError(input);
+document.addEventListener('click', (e) => {
+    if (!e.target.closest('.custom-select')) {
+        regionList.style.display = 'none';
     }
-  }
-
-// ==============================================
-
-
-// form TEL
-
-const phoneInput = document.getElementById ('phone');
-const prefix = '+380'
-
-phoneInput.addEventListener ('focus', () =>{
-   if(phoneInput.value === '' ){
-      phoneInput.value = prefix;
-   }
 });
-phoneInput.addEventListener ('blur', ()=>{
-   if (phoneInput.value === prefix ){
-      phoneInput.value = ''
-   }
-});
-phoneInput.addEventListener('input', (e) => {
-   let value = phoneInput.value;
-   if (!value.startsWith(prefix)) {
-   phoneInput.value = prefix + value.replace(/\D/g, '').slice(3, 12);
-   }
-   const digitsOnly = value.substring(prefix.length).replace(/\D/g, '');
-   phoneInput.value = prefix + digitsOnly.slice(0, 9);
-});
-phoneInput.addEventListener('click', () => {
-   if (phoneInput.selectionStart < prefix.length) {
-   phoneInput.setSelectionRange(prefix.length, prefix.length);
-   }
-});
+
+
 // ===============================================
 
 
@@ -207,3 +212,5 @@ window.addEventListener('keydown', function(e) {
       closeModal();
    }
 });
+
+

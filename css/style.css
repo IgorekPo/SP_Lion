@@ -1,4 +1,4 @@
-.header__links, .factory__text, .block-advantages__text, .information-main__text, .faq__number, body {
+.header__links, .factory__text, .block-advantages__text, .information-main__text, .order__form .custom-select .custom-list li, .faq__number, body {
   font-family: "Roboto", sans-serif;
   color: #403536;
   line-height: 1.6;
@@ -8,7 +8,7 @@
   font-size: calc(12px + 0.2777777778vw);
 }
 @media (max-width: 768px) {
-  .header__links, .factory__text, .block-advantages__text, .information-main__text, .faq__number, body {
+  .header__links, .factory__text, .block-advantages__text, .information-main__text, .order__form .custom-select .custom-list li, .faq__number, body {
     font-size: calc(12px + 3.4 * (100vw - 320px) / 1440);
   }
 }
@@ -800,7 +800,7 @@ main {
 }
 .advantages__advantages {
   text-transform: uppercase;
-  color: #000;
+  color: #403536;
 }
 .advantages__advantages span {
   color: #fff;
@@ -874,7 +874,7 @@ main {
   text-transform: capitalize;
 }
 .block-advantages__text {
-  color: #000;
+  color: #292425;
   font-weight: 600;
 }
 
@@ -1050,6 +1050,35 @@ main {
       -ms-flex-align: center;
           align-items: center;
   text-align: center;
+}
+.order__form .custom-select {
+  position: relative;
+  width: 100%;
+}
+.order__form .custom-select .custom-list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  z-index: 10;
+  display: none;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  max-height: 220px;
+  overflow-y: auto;
+}
+.order__form .custom-select .custom-list li {
+  font-size: 14px;
+  font-weight: 600;
+  padding: 10px;
+  cursor: pointer;
+}
+.order__form .custom-select .custom-list li:hover {
+  background-color: #f0f0f0;
 }
 .order__input {
   border: solid 1px #000;

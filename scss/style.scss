@@ -517,7 +517,7 @@
    &__advantages {
       @extend %tittleText;
       text-transform: uppercase;
-      color: #000;
+      color: #403536;
       & span {
          color: #fff;
       }
@@ -571,7 +571,7 @@
 
    &__text {
       @extend %mainText;
-      color: #000;
+      color: #292425;
       font-weight: 600;
    }
 }
@@ -699,6 +699,36 @@
       gap: 30px;
       align-items: center;
       text-align: center;
+      & .custom-select {
+         position: relative;
+         width: 100%;
+         & .custom-list {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            z-index: 10;
+            display: none;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            max-height: 220px;
+            overflow-y: auto;
+            & li {
+               @extend %mainText;
+               font-size: 14px;
+               font-weight: 600;
+               padding: 10px;
+               cursor: pointer;
+               &:hover {
+                  background-color: #f0f0f0;
+               }
+            }
+         }
+      }
    }
 
    &__input {

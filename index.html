@@ -145,21 +145,21 @@
                   <div class="advantages__blocks">
                      <div class="advantages__block block-advantages">
                         <div class="block-advantages__img"><img
-                              src="./img/Delivery.png" alt="Доставка"></div>
+                              src alt="Доставка"></div>
                         <h3 class="block-advantages__tittle">Доставка</h3>
                         <p class="block-advantages__text">Відправляємо Новою
                            Поштою в день замовлення.</p>
                      </div>
                      <div class="advantages__block block-advantages">
                         <div class="block-advantages__img"><img
-                              src="./img/pay.png" alt="Умови оплати"></div>
+                              src alt="Умови оплати"></div>
                         <h3 class="block-advantages__tittle">оплата</h3>
                         <p class="block-advantages__text">Сплачуйте лише після
                            отримання та перевірки товару.</p>
                      </div>
                      <div class="advantages__block block-advantages">
                         <div class="block-advantages__img"><img
-                              src="./img/best.png" alt="Кращій товар"></div>
+                              src alt="Кращій товар"></div>
                         <h3 class="block-advantages__tittle">товар</h3>
                         <p class="block-advantages__text">Ми продаємо лише
                            якісні та перевіренні товари.</p>
@@ -234,15 +234,51 @@
             </section>
             <section class="order" id="order">
                <div class="order__container">
-                  <h2 class="order__tittle">Залиште номер для хрусткої
-                     співпраці.</h2>
+                  <h2 class="order__tittle">Залиште данні для хрусткої
+                     співпраці.
+                  </h2>
                   <div class="order__body">
                      <form action class="order__form">
+
+                        <div class="order__field">
+                           <div class="custom-select">
+                              <input type="text" id="region"
+                                 class="order__input _req"
+                                 name="region" placeholder="Оберіть область"
+                                 autocomplete="off">
+                              <ul class="custom-list" id="region-list">
+                                 <li>Вінницька</li>
+                                 <li>Волинська</li>
+                                 <li>Дніпропетровська</li>
+                                 <li>Донецька</li>
+                                 <li>Житомирська</li>
+                                 <li>Закарпатська</li>
+                                 <li>Запорізька</li>
+                                 <li>Івано-Франківська</li>
+                                 <li>Київська</li>
+                                 <li>Кіровоградська</li>
+                                 <li>Луганська</li>
+                                 <li>Львівська</li>
+                                 <li>Миколаївська</li>
+                                 <li>Одеська</li>
+                                 <li>Полтавська</li>
+                                 <li>Рівненська</li>
+                                 <li>Сумська</li>
+                                 <li>Тернопільська</li>
+                                 <li>Харківська</li>
+                                 <li>Херсонська</li>
+                                 <li>Хмельницька</li>
+                                 <li>Черкаська</li>
+                                 <li>Чернівецька</li>
+                                 <li>Чернігівська</li>
+                              </ul>
+                           </div>
+                        </div>
                         <input type="tel" id="phone" class="order__input _req"
                            name="userphone" placeholder="Ваш телефон"
                            maxlength="13">
-                        <button class="order__submit"
-                           type="submit"> Замовити</button>
+                        <button class="order__submit" type="submit"
+                           disabled>Замовити</button>
                      </form>
                      <div id="modal" class="modal">
                         <div class="modal__content">
