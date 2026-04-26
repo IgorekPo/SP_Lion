@@ -37,7 +37,30 @@ const regionItems = document.querySelectorAll('.custom-list li');
 const phoneInput = document.querySelector('#phone');
 const submitBtn = document.querySelector('.order__submit');
 
-regionInput.addEventListener('input', () => {
+phoneInput.addEventListener('focus', () => {
+    if (phoneInput.value.length === 0) {
+        phoneInput.value = '+380';
+    }
+});
+
+phoneInput.addEventListener('input', (e) => {
+    let value = phoneInput.value;
+
+    if (!value.startsWith('+380')) {
+        value = '+380';
+    }
+
+
+    const prefix = '+380';
+    const body = value.substring(4).replace(/\D/g, ''); 
+    
+    phoneInput.value = prefix + body;
+
+    checkInputs();
+});
+
+regionInput.addEventListener('input', (e) => {
+    regionInput.value = regionInput.value.replace(/[^a-zA-Zа-яА-ЯёЁїЇіІєЄґҐ\s]/g, '');
     const filter = regionInput.value.toLowerCase();
     let visibleCount = 0;
 
@@ -53,10 +76,7 @@ regionInput.addEventListener('input', () => {
         }
     });
 
-    if (visibleCount === 0) {
-        regionList.style.display = 'none';
-    }
-    
+    if (visibleCount === 0) regionList.style.display = 'none';
     checkInputs(); 
 });
 
@@ -64,9 +84,7 @@ regionItems.forEach(item => {
     item.addEventListener('click', () => {
         regionInput.value = item.textContent;
         regionList.style.display = 'none';
-
         regionItems.forEach(li => li.style.display = "block");
-        
         checkInputs();
     });
 });
@@ -74,7 +92,7 @@ regionItems.forEach(item => {
 
 function checkInputs() {
     const isRegionValid = regionInput.value.trim().length >= 7;
-    const isPhoneValid = phoneInput.value.trim().length >= 13;
+    const isPhoneValid = phoneInput.value.length === 13;
 
     if (isRegionValid && isPhoneValid) {
         submitBtn.classList.add('active');
@@ -85,15 +103,11 @@ function checkInputs() {
     }
 }
 
-phoneInput.addEventListener('input', checkInputs);
-
 document.addEventListener('click', (e) => {
     if (!e.target.closest('.custom-select')) {
         regionList.style.display = 'none';
     }
 });
-
-
 // ===============================================
 
 
