@@ -276,5 +276,28 @@ window.addEventListener('keydown', function(e) {
       closeModal();
    }
 });
+// APPLICATION========================================
 
+document.addEventListener("DOMContentLoaded", () => {
+  const sliders = document.querySelectorAll('.application__slider');
 
+  const startSliders = () => {
+    if (window.innerWidth <= 425) {
+      sliders.forEach(slider => {
+        const images = slider.querySelectorAll('.application__image');
+        if (images.length < 2) return;
+
+        let currentIndex = 0;
+        images[0].classList.add('slider');
+
+        setInterval(() => {
+          images[currentIndex].classList.remove('slider');
+          currentIndex = (currentIndex + 1) % images.length;
+          images[currentIndex].classList.add('slider');
+        }, 4000); 
+      });
+    }
+  };
+
+  startSliders();
+});
