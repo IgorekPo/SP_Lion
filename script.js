@@ -286,6 +286,7 @@ document.addEventListener("DOMContentLoaded", () => {
       sliders.forEach(slider => {
         const images = slider.querySelectorAll('.application__image');
         if (images.length < 2) return;
+        const delay = parseInt(slider.getAttribute('data-delay')) || 4000;
 
         let currentIndex = 0;
         images[0].classList.add('slider');
@@ -294,7 +295,7 @@ document.addEventListener("DOMContentLoaded", () => {
           images[currentIndex].classList.remove('slider');
           currentIndex = (currentIndex + 1) % images.length;
           images[currentIndex].classList.add('slider');
-        }, 4000); 
+        }, delay); 
       });
     }
   };
