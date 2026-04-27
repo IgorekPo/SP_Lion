@@ -846,6 +846,12 @@ main {
 .application__text {
   text-align: center;
   font-weight: 600;
+  font-size: 16px;
+}
+@media (max-width: 519px) {
+  .application__text {
+    font-size: 14px;
+  }
 }
 .application__images {
   display: -webkit-box;

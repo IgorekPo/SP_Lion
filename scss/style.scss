@@ -560,6 +560,10 @@
    &__text {
       text-align: center;
       font-weight: 600;
+      font-size: 16px;
+      @media (max-width: 519px) {
+         font-size: 14px;
+      }
    }
 
    &__images {
