@@ -503,15 +503,14 @@
 .application {
    padding-top: 60px;
    padding-bottom: 60px;
-   background: url("./img/application/application_bg.jpg") 0 0 no-repeat;
+   background: url("../img/application/application_bg.jpg") 0 0 no-repeat;
    background-size: cover;
    &__container {
    }
    &__body {
-      background-color: #fff;
       background:
          linear-gradient(rgba(255, 255, 255, 0.492), rgba(255, 255, 255, 0.532)),
-         url("./img/application/application_bg.jpg") 0 0 no-repeat;
+         url("../img/application/application_bg.jpg") 0 0 no-repeat;
       background-size: cover;
       box-shadow: 0px 6px 10px #000;
       border-radius: 5px;
